@@ -1,6 +1,7 @@
 import React, { useState, useForm } from "react";
+import fs from "fs";
 
-const AddGameForm = () => {
+const SaveToJson = () => {
   const [formData, setFormData] = useState({
     name: "",
     url: "",
@@ -12,6 +13,15 @@ const AddGameForm = () => {
     e.preventDefault();
 
     // Envoi des données du formulaire
+    const data = JSON.stringify(formData);
+    fs.writeFile("data.json", data, (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+
+      console.log("Données enregistrées dans le fichier data.json");
+    });
   };
 
   return (
@@ -19,13 +29,13 @@ const AddGameForm = () => {
       <input
         type="text"
         name="name"
-        placeholder="Nom du jeux"
+        placeholder="Nom de l'image"
         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
       />
       <input
         type="text"
         name="url"
-        placeholder="URL de l'image du jeux"
+        placeholder="URL de l'image"
         onChange={(e) => setFormData({ ...formData, url: e.target.value })}
       />
       <input
@@ -44,4 +54,4 @@ const AddGameForm = () => {
   );
 };
 
-export default AddGameForm;
+export default SaveToJson;
