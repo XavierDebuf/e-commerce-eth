@@ -1,7 +1,7 @@
-import  { React, Component } from "react";
+import  { React } from "react";
 
-class Home extends Component {
-  render() {
+function Home() {
+  
     return (
       <div>
         <h1>Bienvenue sur notre site web e-commerce !</h1>
@@ -10,7 +10,7 @@ class Home extends Component {
         </p>
       </div>
     );
-  }
+
 }
 
 export default Home;

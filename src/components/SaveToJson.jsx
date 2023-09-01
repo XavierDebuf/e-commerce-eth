@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 
-const SaveToJson = () => {
-  const [formData, setFormData] = useState({
+function SaveToJson () {
+  const [formData, setFormData] = useState([{
     name: "",
     url: "",
     price: "",
     description: "",
-  });
+  }]);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     // Envoi des données du formulaire
     const data = JSON.stringify(formData);
-    fetch("../data/data.json", {
+    fetch("../../public/data2.json", {
       method: "POST",
       body: data,
     });

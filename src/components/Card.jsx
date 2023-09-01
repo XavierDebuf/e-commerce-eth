@@ -1,16 +1,16 @@
 
 import React from "react";
 
-const Card = ({ image, name, price, description }) => {
+function Card(props){
   return (
     <div>
-      <img src={image} alt={name} />
-      <h3>{name}</h3>
+      <img src={props.url} alt={props.name} />
+      <h3>{props.name}</h3>
       <p>
-        <strong>Prix</strong>: {price}
+        <strong>Prix</strong>: {props.price}
       </p>
       <p>
-        <strong>Description</strong>: {description}
+        <strong>Description</strong>: {props.description}
       </p>
     </div>
   );

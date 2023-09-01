@@ -1,0 +1,13 @@
+[{
+    "url":"home/",
+    "name":"depositgame",
+    "price":33,
+    "description":"a very expensive game"
+},
+{
+    "url":"maison/",
+    "name":"expositgame",
+    "price":398,
+    "description":"a very very very very very expensive game"
+  }
+]
