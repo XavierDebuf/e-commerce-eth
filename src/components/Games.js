@@ -1,38 +1,39 @@
-import React, { Component } from "react";
-import Axios from "axios";
-import { Card, Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 
-class Games extends Component {
-  state = {
-    games: [],
-  };
+const GamesList = ({ getGames, deleteGames }) => {
+  const [Games, setGames] = useState([]);
 
-  componentDidMount() {
-    // Effectue une requête HTTP pour obtenir la liste des jeux
-    Axios
-      .get("https://api.igdb.com/v4/games")
-      .then((response) => {
-        this.setState({ games: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  useEffect(() => {
+    // Récupère les Games
+    getGames().then((Games) => setGames(Games));
+  }, []);
 
-  render() {
-    return (
-      <div>
-        {this.state.games.map((game) => (
-          <Card key={game.id}>
-            <Card.Img src={game.cover.url} />
-            <Card.Body>
-              <Card.Title>{game.name}</Card.Title>
-              <Card.Subtitle>{game.summary}</Card.Subtitle>
-              <Button href={"/games/" + game.id}>Voir plus</Button>
-            </Card.Body>
-          </Card>))}
+  return (
+    <div>
+      <h1>Liste des Games</h1>
+
+      {Games.map((Games) => (
+        <div key={Games.id}>
+          <img src={Games.url} alt={Games.name} />
+          <p>
+            <strong>Nom</strong>: {Games.name}
+          </p>
+          <p>
+            <strong>Prix</strong>: {Games.price}
+          </p>
+          <p>
+            <strong>Description</strong>: {Games.description}
+          </p>
+
+          <button onClick={() => deleteGames(Games.id)}>Supprimer</button>
         </div>
-        )
-  }
-}
-export default Games;
+      ))}
+
+      <button onClick={() => {
+        // Ouvre un formulaire pour ajouter une nouvelle Games
+      }}>Ajouter une Games</button>
+    </div>
+  );
+};
+
+export default GamesList;
