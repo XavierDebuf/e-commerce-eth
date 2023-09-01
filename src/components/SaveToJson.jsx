@@ -1,5 +1,4 @@
-import React, { useState, useForm } from "react";
-import fs from "fs";
+import React, { useState } from "react";
 
 const SaveToJson = () => {
   const [formData, setFormData] = useState({
@@ -14,13 +13,9 @@ const SaveToJson = () => {
 
     // Envoi des données du formulaire
     const data = JSON.stringify(formData);
-    fs.writeFile("data.json", data, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-
-      console.log("Données enregistrées dans le fichier data.json");
+    fetch("../data/data.json", {
+      method: "POST",
+      body: data,
     });
   };
 
