@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Games from "./components/Games";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import SaveToJson from './components/SaveToJson';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <Routes>
           <Route exact path="/" element={<Home/>} />
           <Route path="/games" element={<Games/>} />
+          <Route path="/add_games" element={<SaveToJson/>} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/checkout" element={<Checkout/>} />
         </Routes>
