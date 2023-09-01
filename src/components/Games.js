@@ -9,7 +9,7 @@ class Games extends Component {
 
   componentDidMount() {
     // Effectue une requête HTTP pour obtenir la liste des jeux
-    axios
+    Axios
       .get("https://api.igdb.com/v4/games")
       .then((response) => {
         this.setState({ games: response.data });
@@ -34,3 +34,5 @@ class Games extends Component {
         </div>
         )
   }
+}
+export default Games;
