@@ -1,0 +1,9 @@
+<ul>
+    <li>{Games.map(Jeux => (
+      <ul>
+      <li>url: {Jeux.url}</li>
+      <li>nom: {Jeux.name}</li>
+      <li>prix: {Jeux.price}</li>
+      <li>description {Jeux.description}</li> 
+      ))}
+      </ul>

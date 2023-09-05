@@ -4,9 +4,11 @@ function Home() {
   
     return (
       <div>
+      
+      
         <h1>Bienvenue sur notre site web e-commerce !</h1>
         <p>
-          Nous vendons des jeux vidéo de tous genres, pour tous les âges.
+          Nous vendons des NFTs aux enchéres, vous pouvez acheter des NFTs <br/> ou vous pouvez vendre vos propres NFTs <br/>et les proposer en enchères.
         </p>
       </div>
     );
